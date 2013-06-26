@@ -1,0 +1,21 @@
+{
+	"name": "lelesys/captcha",
+	"description": "Captcha require for form",
+	"license": "LGPL-3.0+",
+	"type": "typo3-flow-package",
+	"authors": [
+		{
+			"name": "Lelesys Infotech Pvt Ltd, India",
+			"email": "typo3neos@lelesys.com",
+			"homepage": "http://www.lelesys.com"
+		}
+	],
+	"require": {
+		"typo3/flow": "*"
+	},
+	"autoload": {
+		"psr-0": {
+			"Lelesys\\Captcha": "Classes"
+		}
+	}
+}
