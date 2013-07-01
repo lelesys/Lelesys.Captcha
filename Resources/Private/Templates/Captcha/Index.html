@@ -1,0 +1,23 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of captchas</f:section>
+
+<f:section name="Content">
+	<f:if condition="{captchas}">
+		<f:then>
+			<ul>
+				<f:for each="{captchas}" as="captcha">
+					<li>
+						<f:link.action action="show" arguments="{captcha: captcha}">{captcha.name}</f:link.action>
+						<f:link.action action="edit" arguments="{captcha: captcha}">Edit</f:link.action>
+						<f:link.action action="delete" arguments="{captcha: captcha}">Delete</f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<p>No captchas created yet.</p>
+		</f:else>
+	</f:if>
+	<p><f:link.action action="new">Create a new captcha</f:link.action></p>
+</f:section>

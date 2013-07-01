@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+  <file source-language="en" target-language="de" datatype="plaintext" original="" date="" product-name="">
+    <header/>
+    <body>
+      <trans-unit id="lelesys.captcha.linktext" approved="yes">
+        <source>I can not read captcha</source>
+        <target>I can not read captcha-de</target>
+      </trans-unit>
+      <trans-unit id="lelesys.captcha.caseSensitive" approved="yes">
+        <source>Captcha not case sensitive </source>
+        <target>Captcha not case sensitive-de</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
