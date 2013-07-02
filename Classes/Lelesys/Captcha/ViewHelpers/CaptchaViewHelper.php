@@ -52,7 +52,7 @@ class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldV
 		$image = '<p>'.$this->translator->translateById('lelesys.captcha.caseSensitive', array(), NULL, NULL, 'Main', 'Lelesys.Captcha').'</p><p>';
 		$image .= '<img id="captcha-image" src="'.$path.'" class="captcha-image"/>';
 		$image .= '<br />';
-		$image .= '<a class="captcha-reaload" href="javascript:void(0)" onclick="var e = document.getElementById(\'captcha-image\'); e.src=e.src;">';
+		$image .= '<a class="captcha-reaload" href="javascript:void(0)" onclick=" var e = document.getElementById(\'captcha-image\'); e.src=e.src.split(\'?\')[0]+\'?\'+Math.random();">';
 
 		$image .= $this->translator->translateById('lelesys.captcha.linktext', array(), NULL, NULL, 'Main', 'Lelesys.Captcha');
 		$image .= '</a>';
