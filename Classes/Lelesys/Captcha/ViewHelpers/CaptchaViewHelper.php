@@ -16,6 +16,12 @@ class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldV
 	protected $settings;
 
 	/**
+	 * @var \TYPO3\Flow\Core\Bootstrap
+	 * @Flow\Inject
+	 */
+	protected $bootstrap;
+
+	/**
 	 * @param array $settings
 	 * @return void
 	*/
@@ -48,7 +54,8 @@ class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldV
 	 */
 
 	public function render() {
-		$path = 'http://'.$_SERVER['HTTP_HOST'].'/Lelesys.Captcha/Captcha/captcha';
+		$baseUri = $this->bootstrap->getActiveRequestHandler()->getHttpRequest()->getBaseUri();
+		$path = $baseUri . 'Lelesys.Captcha/Captcha/captcha';
 		$image = '<p>'.$this->translator->translateById('lelesys.captcha.caseSensitive', array(), NULL, NULL, 'Main', 'Lelesys.Captcha').'</p><p>';
 		$image .= '<img id="captcha-image" src="'.$path.'" class="captcha-image"/>';
 		$image .= '<br />';
