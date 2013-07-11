@@ -1,7 +1,0 @@
-TYPO3:
-  TYPO3CR:
-    contentTypes:
-      'Lelesys.captcha:FrontEndLanguageSelection':
-        superTypes: ['TYPO3.Neos.ContentTypes:Plugin']
-        label: 'captcha plugin'
-        group: 'Plugins'
