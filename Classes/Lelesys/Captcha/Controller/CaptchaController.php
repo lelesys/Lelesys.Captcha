@@ -12,7 +12,6 @@ namespace Lelesys\Captcha\Controller;
 
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Mvc\Controller\ActionController;
-use \Lelesys\Captcha\Domain\Model\Captcha;
 
 /**
  * Captcha controller for the Lelesys.Captcha package
@@ -23,7 +22,7 @@ class CaptchaController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Lelesys\Captcha\Service\CaptchaService
+	 * @var \Lelesys\Captcha\Domain\Service\CaptchaService
 	 */
 	protected $captchaService;
 

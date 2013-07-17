@@ -13,7 +13,7 @@ namespace Lelesys\Captcha\Validators;
 use TYPO3\Flow\Annotations as FLOW;
 
 /**
- * Validator for checking bad words
+ * Validator for checking incorrect word
  *
  * @api
  */
@@ -21,7 +21,7 @@ class CaptchaValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidato
 
 	/**
 	 * @FLOW\Inject
-	 * @var \Lelesys\Captcha\Service\CaptchaService
+	 * @var \Lelesys\Captcha\Domain\Service\CaptchaService
 	 */
 	protected $captchaService;
 
@@ -40,11 +40,7 @@ class CaptchaValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidato
 				$this->addError('Text is wrong.', 170320111501);
 				return FALSE;
 			}
-		} catch (Exception $e) {
-			t3lib_div::devLog('captcha error: ' . $e->getMessage(), 'captcha_viewhelper', 2);
-			return FALSE;
-		} catch (\Lelesys\Captcha\Domain\Service\Exception\NoCaptchaTextExistsException $notregisteredxception) {
-			//$this->addFlashMessage('It seems like you are not register user of Launchr', '', \TYPO3\Flow\Error\Message::SEVERITY_ERROR, array(), 1355461231);
+		} catch (\Lelesys\Captcha\Domain\Service\Exception\NoCaptchaTextExistsException $exception) {
 			$this->addError('No Captcha Text Found.', 170320111506);
 			return FALSE;
 		}

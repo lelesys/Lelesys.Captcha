@@ -1,6 +1,6 @@
 <?php
 
-namespace Lelesys\Captcha\Service;
+namespace Lelesys\Captcha\Domain\Service;
 
 /*                                                                         *
  * This script belongs to the package "Lelesys.Captcha".                   *
@@ -25,19 +25,6 @@ class CaptchaService {
 	protected $captchaSession;
 
 	/**
-	 * @var array
-	 */
-	protected $settings;
-
-	/**
-	 * @param array $settings
-	 * @return void
-	 */
-	public function injectSettings(array $settings) {
-		$this->settings = $settings;
-	}
-
-	/**
 	 * Create Captcha Image
 	 *
 	 * @return void
@@ -45,13 +32,9 @@ class CaptchaService {
 	public function createCaptcha() {
 		$captcha = new \Gregwar\Captcha\CaptchaBuilder();
 		$captcha->build();
-
 		$value = $captcha->getPhrase();
-
-		header('Content-type: image/jpeg');
 		$captcha->output();
-
-		// set Captcha session.
+			// set Captcha session.
 		if ($this->captchaSession->getCaptchaKey() != NULL) {
 			$this->captchaSession->setCaptchaKey($value);
 		}
@@ -63,13 +46,15 @@ class CaptchaService {
 	}
 
 	/**
+	 * Get captcha text from the session
+	 *
 	 * @return string
-	 * @throws \Lelesys\Captcha\Domain\Service\Exception\NotRegisteredUserException
+	 * @throws \Lelesys\Captcha\Domain\Service\Exception\NoCaptchaTextExistsException
 	 */
 	public function getTextInSession() {
 		$value = $this->captchaSession->getCaptchaKey();
 		if (empty($value)) {
-			throw new \Lelesys\Captcha\Domain\Service\Exception\NoCaptchaTextExistsException('Token does not match!', 170320111506);
+			throw new \Lelesys\Captcha\Domain\Service\Exception\NoCaptchaTextExistsException('No Captcha Text Found!', 170320111506);
 		}
 		return $value;
 	}
