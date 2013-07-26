@@ -32,7 +32,8 @@ class CaptchaController extends ActionController {
 	 * @return void
 	 */
 	public function captchaAction() {
-		return $this->captchaService->createCaptcha();
+		$this->response->setHeader('Content-Type', 'image/jpeg');
+		$this->captchaService->createCaptcha();
 	}
 
 }

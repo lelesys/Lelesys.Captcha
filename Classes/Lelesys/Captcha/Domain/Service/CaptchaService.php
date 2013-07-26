@@ -42,7 +42,6 @@ class CaptchaService {
 		if (count($this->captchaSession->getCaptchaKey()) == NULL) {
 			$this->captchaSession->setCaptchaKey($value);
 		}
-		return true;
 	}
 
 	/**
