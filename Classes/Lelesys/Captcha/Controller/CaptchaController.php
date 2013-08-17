@@ -33,7 +33,10 @@ class CaptchaController extends ActionController {
 	 */
 	public function captchaAction() {
 		$this->response->setHeader('Content-Type', 'image/jpeg');
-		$this->captchaService->createCaptcha();
+		$image = $this->captchaService->createCaptcha();
+		$this->response->setHeader('Content-Length', strlen($image));
+		echo $image;
+		throw new \TYPO3\Flow\Mvc\Exception\StopActionException();
 	}
 
 }

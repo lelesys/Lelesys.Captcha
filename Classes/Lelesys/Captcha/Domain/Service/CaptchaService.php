@@ -31,9 +31,8 @@ class CaptchaService {
 	 */
 	public function createCaptcha() {
 		$captcha = new \Gregwar\Captcha\CaptchaBuilder();
-		$captcha->build();
+		$image = $captcha->build()->get();
 		$value = $captcha->getPhrase();
-		$captcha->output();
 			// set Captcha session.
 		if ($this->captchaSession->getCaptchaKey() != NULL) {
 			$this->captchaSession->setCaptchaKey($value);
@@ -42,6 +41,7 @@ class CaptchaService {
 		if (count($this->captchaSession->getCaptchaKey()) == NULL) {
 			$this->captchaSession->setCaptchaKey($value);
 		}
+		return $image;
 	}
 
 	/**
