@@ -26,6 +26,24 @@ class CaptchaValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidato
 	protected $captchaService;
 
 	/**
+	 * @FLOW\Inject
+	 * @var \TYPO3\Flow\I18n\Translator
+	 */
+	protected $translator;
+
+	/**
+	 * @var array
+	 */
+	protected $settings;
+
+	/**
+	 * @param array $settings
+	 */
+	public function injectSettings(array $settings) {
+		$this->settings = $settings;
+	}
+
+	/**
 	 * Returns TRUE, if the given property ($value) matches the session captcha Value.
 	 *
 	 * If at least one error occurred, the result is FALSE.
@@ -37,11 +55,11 @@ class CaptchaValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidato
 		$this->errors = array();
 		try {
 			if ($value !== $this->captchaService->getTextInSession()) {
-				$this->addError('Text is wrong.', 170320111501);
+				$this->addError($this->translator->translateById($this->settings['errorMessageTextWrong'], array(), NULL, NULL, 'Main', $this->settings['customErrorMessagePackageKey']), 170320111501);
 				return FALSE;
 			}
 		} catch (\Lelesys\Captcha\Domain\Service\Exception\NoCaptchaTextExistsException $exception) {
-			$this->addError('No Captcha Text Found.', 170320111506);
+			$this->addError($this->translator->translateById($this->settings['errorMessageTextNotFound'], array(), NULL, NULL, 'Main', $this->settings['customErrorMessagePackageKey']), 170320111506);
 			return FALSE;
 		}
 		return TRUE;

@@ -21,6 +21,18 @@ class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldV
 	protected $bootstrap;
 
 	/**
+	 * @var array
+	 */
+	protected $settings;
+
+	/**
+	 * @param array $settings
+	 */
+	public function injectSettings(array $settings) {
+		$this->settings = $settings;
+	}
+
+	/**
 	 * Renders the captch image
 	 *
 	 * @return void
@@ -29,7 +41,7 @@ class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldV
 		$baseUri = $this->bootstrap->getActiveRequestHandler()->getHttpRequest()->getBaseUri();
 		$path = $baseUri . 'Lelesys.Captcha/Captcha/captcha';
 		$template = new \TYPO3\Fluid\View\StandaloneView();
-		$template->setTemplatePathAndFilename('resource://Lelesys.Captcha/Private/Templates/ViewHelper/Captcha.html');
+		$template->setTemplatePathAndFilename($this->settings['templatePath']);
 		$template->assign('path', $path);
 		return $template->render();
 	}

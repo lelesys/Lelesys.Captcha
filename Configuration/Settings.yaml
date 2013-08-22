@@ -1,0 +1,6 @@
+Lelesys:
+  Captcha:
+    customErrorMessagePackageKey: 'Lelesys.Captcha'
+    errorMessageTextWrong: 'lelesys.captcha.textwrong'
+    errorMessageTextNotFound: 'lelesys.captcha.notextfound'
+    templatePath: 'resource://Lelesys.Captcha/Private/Templates/ViewHelper/Captcha.html'
