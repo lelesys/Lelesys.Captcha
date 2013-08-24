@@ -4,3 +4,7 @@ Lelesys:
     errorMessageTextWrong: 'lelesys.captcha.textwrong'
     errorMessageTextNotFound: 'lelesys.captcha.notextfound'
     templatePath: 'resource://Lelesys.Captcha/Private/Templates/ViewHelper/Captcha.html'
+    primaryColor:
+      red: 0
+      green: 0
+      blue: 0

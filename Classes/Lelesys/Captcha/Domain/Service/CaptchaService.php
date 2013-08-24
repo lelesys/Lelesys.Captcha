@@ -25,13 +25,25 @@ class CaptchaService {
 	protected $captchaSession;
 
 	/**
+	 * @var array
+	 */
+	protected $settings;
+
+	/**
+	 * @param array $settings
+	 */
+	public function injectSettings(array $settings) {
+		$this->settings = $settings;
+	}
+
+	/**
 	 * Create Captcha Image
 	 *
 	 * @return void
 	 */
 	public function createCaptcha() {
 		$captcha = new \Gregwar\Captcha\CaptchaBuilder();
-		$image = $captcha->build()->get();
+		$image = $captcha->setBackgroundColor($this->settings['primaryColor']['red'], $this->settings['primaryColor']['green'], $this->settings['primaryColor']['blue'])->build()->get();
 		$value = $captcha->getPhrase();
 			// set Captcha session.
 		if ($this->captchaSession->getCaptchaKey() != NULL) {
