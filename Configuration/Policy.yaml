@@ -1,0 +1,12 @@
+#                                                                        #
+# Security policy for the Lelesys.Captcha                    #
+#                                                                        #
+
+resources:
+  methods:
+    Lelesys_Captcha_CaptchaAccess: 'method(Lelesys\Captcha\Controller\CaptchaController->(captcha)Action())'
+
+acls:
+  Everybody:
+    methods:
+      Lelesys_Captcha_CaptchaAccess: GRANT
