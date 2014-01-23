@@ -8,3 +8,10 @@ Lelesys:
       red: 0
       green: 0
       blue: 0
+    distortion: 0
+    interpolation: TRUE
+    maxBehindLines: '1'
+    maxFrontLines: '1'
+    font: NULL
+    height: 100
+    width: 30

@@ -43,7 +43,11 @@ class CaptchaService {
 	 */
 	public function createCaptcha() {
 		$captcha = new \Gregwar\Captcha\CaptchaBuilder();
-		$image = $captcha->setBackgroundColor($this->settings['primaryColor']['red'], $this->settings['primaryColor']['green'], $this->settings['primaryColor']['blue'])->build()->get();
+		$captcha->setDistortion($this->settings['distortion']);
+		$captcha->setInterpolation($this->settings['interpolation']);
+		$captcha->setMaxBehindLines($this->settings['maxBehindLines']);
+		$captcha->setMaxFrontLines($this->settings['maxFrontLines']);
+		$image = $captcha->setBackgroundColor($this->settings['primaryColor']['red'], $this->settings['primaryColor']['green'], $this->settings['primaryColor']['blue'])->build($this->settings['height'], $this->settings['width'])->get();
 		$value = $captcha->getPhrase();
 			// set Captcha session.
 		if ($this->captchaSession->getCaptchaKey() != NULL) {
