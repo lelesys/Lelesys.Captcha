@@ -38,11 +38,11 @@ class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldV
 	 * @return void
 	 */
 	public function render() {
-		$baseUri = $this->bootstrap->getActiveRequestHandler()->getHttpRequest()->getBaseUri();
-		$path = $baseUri . 'Lelesys.Captcha/Captcha/captcha';
+		$uriBuilder = $this->controllerContext->getUriBuilder();
+		$uri = $uriBuilder->uriFor('captcha', array(), 'Captcha', 'Lelesys.Captcha');
 		$template = new \TYPO3\Fluid\View\StandaloneView();
 		$template->setTemplatePathAndFilename($this->settings['templatePath']);
-		$template->assign('path', $path);
+		$template->assign('path', $uri);
 		return $template->render();
 	}
 

@@ -1,0 +1,8 @@
+-
+  name: 'Create Captcha'
+  uriPattern:    'captcha/create'
+  defaults:
+    '@package':    'Lelesys.Captcha'
+    '@controller': 'Captcha'
+    '@format': 'html'
+    '@action': 'captcha'
