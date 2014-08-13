@@ -47,7 +47,7 @@ class CaptchaService {
 		$captcha->setInterpolation($this->settings['interpolation']);
 		$captcha->setMaxBehindLines($this->settings['maxBehindLines']);
 		$captcha->setMaxFrontLines($this->settings['maxFrontLines']);
-		$image = $captcha->setBackgroundColor($this->settings['primaryColor']['red'], $this->settings['primaryColor']['green'], $this->settings['primaryColor']['blue'])->build($this->settings['height'], $this->settings['width'])->get();
+		$image = $captcha->setBackgroundColor($this->settings['primaryColor']['red'], $this->settings['primaryColor']['green'], $this->settings['primaryColor']['blue'])->build($this->settings['width'], $this->settings['height'])->get();
 		$value = $captcha->getPhrase();
 			// set Captcha session.
 		if ($this->captchaSession->getCaptchaKey() != NULL) {
