@@ -54,7 +54,7 @@ class CaptchaValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidato
 	public function isValid($value) {
 		$this->errors = array();
 		try {
-			$pattern = ($this->settings['caseSensitive'] === TRUE) ? '/' . $value . '/' : '/' . $value . '/i';
+			$pattern = ($this->settings['caseSensitive'] === TRUE) ? '/\b' . $value . '\b/' : '/\b' . $value . '\b/i';
 			if (!preg_match($pattern, $this->captchaService->getTextInSession())) {
 				$this->addError($this->translator->translateById($this->settings['errorMessageTextWrong'], array(), NULL, NULL, 'Main', $this->settings['customErrorMessagePackageKey']), 170320111501);
 				return FALSE;
