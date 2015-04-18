@@ -2,11 +2,13 @@
 # Security policy for the Lelesys.Captcha                    #
 #                                                                        #
 
-resources:
-  methods:
-    Lelesys_Captcha_CaptchaAccess: 'method(Lelesys\Captcha\Controller\CaptchaController->(captcha)Action())'
-
-acls:
-  Everybody:
-    methods:
-      Lelesys_Captcha_CaptchaAccess: GRANT
+privilegeTargets:
+  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'Lelesys.Captcha:CaptchaController':
+      matcher: 'method(Lelesys\Captcha\Controller\CaptchaController->(captcha)Action())'
+roles:
+  'TYPO3.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'Lelesys.Captcha:CaptchaController'
+        permission: GRANT
