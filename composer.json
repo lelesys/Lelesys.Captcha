@@ -11,7 +11,7 @@
 		}
 	],
 	"require": {
-		"typo3/flow": ">=2.1.0"
+		"typo3/flow": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {
