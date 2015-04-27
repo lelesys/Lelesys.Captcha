@@ -11,7 +11,7 @@
 		}
 	],
 	"require": {
-		"typo3/flow": "*"
+		"typo3/flow": "@dev"
 	},
 	"autoload": {
 		"psr-0": {
