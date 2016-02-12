@@ -1,5 +1,5 @@
 <p>Captcha not case sensitive</p>
-<p><img id="captcha-image" src="{path}" class="captcha-image"/></p>
+<p><img id="captcha-image" src="<f:uri.action action='captcha' controller='Captcha' package='Lelesys.Captcha'></f:uri.action>" class="captcha-image"/></p>
 <a class="captcha-reaload" href="javascript:void(0)" onclick=" var e = document.getElementById('captcha-image'); e.src=e.src.split('?')[0]+'?'+Math.random();">
 	I can not read captcha
 </a>
