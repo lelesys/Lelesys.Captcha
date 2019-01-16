@@ -12,7 +12,7 @@ namespace Lelesys\Captcha\ViewHelpers;
 
 use Neos\Flow\Annotations as FLOW;
 
-class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper {
+class CaptchaViewHelper extends \Neos\FluidAdaptor\ViewHelpers\Form\AbstractFormFieldViewHelper {
 
 	/**
 	 * @var \Neos\Flow\Core\Bootstrap
@@ -40,7 +40,7 @@ class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldV
 	public function render() {
 		$uriBuilder = $this->controllerContext->getUriBuilder();
 		$uri = $uriBuilder->uriFor('captcha', array(), 'Captcha', 'Lelesys.Captcha');
-		$template = new \TYPO3\Fluid\View\StandaloneView();
+		$template = new \Neos\FluidAdaptor\View\StandaloneView();
 		$template->setTemplatePathAndFilename($this->settings['templatePath']);
 		$template->assign('path', $uri);
 		return $template->render();
