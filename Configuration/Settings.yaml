@@ -16,3 +16,9 @@ Lelesys:
     height: 100
     width: 30
     caseSensitive: FALSE
+Neos:
+  Flow:
+    mvc:
+      routes:
+        Lelesys.Captcha:
+          position: 'before Neos.Neos'

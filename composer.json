@@ -1,8 +1,8 @@
 {
     "name": "lelesys/captcha",
     "description": "Captcha require for form",
-    "license": "LGPL-3.0+",
-    "type": "typo3-flow-package",
+    "license": "LGPL-3.0-or-later",
+    "type": "neos-package",
     "authors": [
         {
             "name": "Lelesys Infotech Pvt Ltd, India",
@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "typo3/flow": ">=2.1.0"
+        "neos/flow": "^5.0",
+        "gregwar/captcha": "1.*"
     },
     "autoload": {
         "psr-0": {
