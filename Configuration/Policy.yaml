@@ -3,11 +3,11 @@
 #                                                                        #
 
 privilegeTargets:
-  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
     'Lelesys.Captcha:CaptchaController':
       matcher: 'method(Lelesys\Captcha\Controller\CaptchaController->(captcha)Action())'
 roles:
-  'TYPO3.Flow:Everybody':
+  'Neos.Flow:Everybody':
     privileges:
       -
         privilegeTarget: 'Lelesys.Captcha:CaptchaController'

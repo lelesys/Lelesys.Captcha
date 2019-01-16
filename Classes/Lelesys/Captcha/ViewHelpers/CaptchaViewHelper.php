@@ -10,12 +10,12 @@ namespace Lelesys\Captcha\ViewHelpers;
  * of the License, or (at your option) any later version.                  *
  *                                                                         */
 
-use TYPO3\Flow\Annotations as FLOW;
+use Neos\Flow\Annotations as FLOW;
 
 class CaptchaViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper {
 
 	/**
-	 * @var \TYPO3\Flow\Core\Bootstrap
+	 * @var \Neos\Flow\Core\Bootstrap
 	 * @Flow\Inject
 	 */
 	protected $bootstrap;

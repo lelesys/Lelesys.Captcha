@@ -10,8 +10,8 @@ namespace Lelesys\Captcha\Controller;
  * of the License, or (at your option) any later version.                  *
  *                                                                         */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Mvc\Controller\ActionController;
 
 /**
  * Captcha controller for the Lelesys.Captcha package
@@ -36,7 +36,7 @@ class CaptchaController extends ActionController {
 		$image = $this->captchaService->createCaptcha();
 		$this->response->setHeader('Content-Length', strlen($image));
 		echo $image;
-		throw new \TYPO3\Flow\Mvc\Exception\StopActionException();
+		throw new \Neos\Flow\Mvc\Exception\StopActionException();
 	}
 
 }

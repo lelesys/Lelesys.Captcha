@@ -10,14 +10,14 @@ namespace Lelesys\Captcha\Validators;
  * of the License, or (at your option) any later version.                  *
  *                                                                         */
 
-use TYPO3\Flow\Annotations as FLOW;
+use Neos\Flow\Annotations as FLOW;
 
 /**
  * Validator for checking incorrect word
  *
  * @api
  */
-class CaptchaValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidator {
+class CaptchaValidator extends \Neos\Flow\Validation\Validator\AbstractValidator {
 
 	/**
 	 * @FLOW\Inject
@@ -27,7 +27,7 @@ class CaptchaValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidato
 
 	/**
 	 * @FLOW\Inject
-	 * @var \TYPO3\Flow\I18n\Translator
+	 * @var \Neos\Flow\I18n\Translator
 	 */
 	protected $translator;
 
