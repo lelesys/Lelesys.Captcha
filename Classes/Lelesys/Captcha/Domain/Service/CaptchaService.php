@@ -54,7 +54,7 @@ class CaptchaService {
 			$this->captchaSession->setCaptchaKey($value);
 		}
 
-		if (count($this->captchaSession->getCaptchaKey()) == NULL) {
+		if (empty($this->captchaSession->getCaptchaKey())) {
 			$this->captchaSession->setCaptchaKey($value);
 		}
 		return $image;
