@@ -11,6 +11,7 @@ namespace Lelesys\Captcha\Controller;
  *                                                                         */
 
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Component\SetHeaderComponent;
 use Neos\Flow\Mvc\Controller\ActionController;
 
 /**
@@ -18,26 +19,28 @@ use Neos\Flow\Mvc\Controller\ActionController;
  *
  * @Flow\Scope("singleton")
  */
-class CaptchaController extends ActionController {
+class CaptchaController extends ActionController
+{
 
-	/**
-	 * @Flow\Inject
-	 * @var \Lelesys\Captcha\Domain\Service\CaptchaService
-	 */
-	protected $captchaService;
+    /**
+     * @Flow\Inject
+     * @var \Lelesys\Captcha\Domain\Service\CaptchaService
+     */
+    protected $captchaService;
 
-	/**
-	 * Captcha render
-	 *
-	 * @return void
-	 */
-	public function captchaAction() {
-		$this->response->setHeader('Content-Type', 'image/jpeg');
-		$image = $this->captchaService->createCaptcha();
-		$this->response->setHeader('Content-Length', strlen($image));
-		echo $image;
-		throw new \Neos\Flow\Mvc\Exception\StopActionException();
-	}
+    /**
+     * Captcha render
+     *
+     * @return void
+     */
+    public function captchaAction()
+    {
+        $this->response->setComponentParameter(SetHeaderComponent::class, 'Content-Type', 'image/jpeg');
+        $image = $this->captchaService->createCaptcha();
+        $this->response->setComponentParameter(SetHeaderComponent::class, 'Content-Length', strlen($image));
+        echo $image;
+        throw new \Neos\Flow\Mvc\Exception\StopActionException();
+    }
 
 }
 

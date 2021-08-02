@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "neos/flow": "^5.0",
+        "neos/flow": "^6.0",
         "gregwar/captcha": "1.*"
     },
     "autoload": {
